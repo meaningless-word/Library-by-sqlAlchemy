@@ -10,8 +10,10 @@ def Create():
         if "UNIQUE constraint failed" in e.args[0]:
             print(f"Попытка добавить повторяющееся значение {genre_name}")
 
-def Read():
-    genres = ORM.genreRepository.Read()
+def Read(genres):
+    if genres == None:
+        genres = ORM.genreRepository.Read()
+
     print(":{0:^6s}:{1:^40s}:".format("id", "наименование"))
     for g in genres:
         print(":{id:>6d}:{name:<40s}:".format(id=g.id, name=g.name))

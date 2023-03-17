@@ -13,6 +13,8 @@ def Read(**kwargs):
             return session.query(Genre.id, Genre.name).all()
         if "id" in kwargs:
             return session.query(Genre.id, Genre.name).filter(Genre.id == kwargs["id"]).first()
+        if "sub" in kwargs:
+            return session.query(Genre.id, Genre.name).filter(Genre.name.like("%" + kwargs["sub"] + "%")).all()
 
 def Update(item):
     with Session() as session:

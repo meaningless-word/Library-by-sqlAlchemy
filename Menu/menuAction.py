@@ -13,7 +13,7 @@ def Choise(action):
         case "genres.add":
             Views.genreView.Create()
         case "genres.show":
-            Views.genreView.Read()
+            Views.genreView.Read(None)
         case "genres.upd":
             Views.genreView.Update()
         case "genres.del":
